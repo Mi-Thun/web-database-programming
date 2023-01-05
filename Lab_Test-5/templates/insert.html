@@ -1,0 +1,23 @@
+<body style="background-color: lightgray">
+<div style="background-color: white; padding: 10px; margin-left: 30%; margin-right: 30%" >
+
+<form align="center" action='/insert/' method="POST">
+    Blog Tittle:<br>
+    <input width="30%" type="text" name="tittle" value="" required><br/><br/>
+    Content:<br>
+    <textarea type="text" name="content"  required rows="4" cols="50"></textarea>
+    <br>
+    <br>
+    <button type="submit">Insert</button>
+    <button><a style="text-decoration: none" href="/home/">See All Blog</a></button>
+</form>
+
+<div align="center">
+
+{% if isPost == True %}
+    <p>Message: <span style="color: Green">{{ result }}</span></p>
+{% endif %}
+</div>
+
+</div>
+</body>

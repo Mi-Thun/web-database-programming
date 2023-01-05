@@ -1,0 +1,40 @@
+
+<body style="background-color: lightgray">
+<div style="background-color: white; margin-left: 30%; margin-right: 30%" >
+
+
+<form align="center" action='/home/' method="POST">
+    Search tittle: <br>
+    <input type="text" name="tittle" value="{{ tittle }}"><br/><br/>
+    <button type="submit">Search</button>
+    <p><a href="{{ url_for('insert') }}">Write a blog</a></p>
+</form>
+<div align="center">
+    {% if isPost %}
+    {% if find is not none %}
+        <h1 style="text-align:center"><u>Search Result:</u></h1>
+        {% for x in range(l) %}
+            <p><span style="color: chartreuse">Tittle: </span> {{ arry[x]['tittle'] }}</p>
+            <p><span style="color: chartreuse">Content: </span> {{ arry[x]['content'] }}</p>
+            <button><a href="{{ url_for('upload', id=arry[x]['_id']) }}">Edit</a></button>
+            <button><a href="{{ url_for('home', id=arry[x]['_id']) }}">Delete</a></button>
+        {% endfor %}
+    {% else %}
+        {{ 'Try again with valid tittle' }}
+    {% endif %}
+{% endif %}
+
+{% if havePost == True %}
+    <h1 style="text-align: center;"><u>All Blog:</u></h1>
+    {% for i in list %}
+        <p><span style="color: chartreuse">Tittle: </span> {{ i['tittle'] }}</p>
+        <p><span style="color: chartreuse">Content: </span>{{ i['content'] }}</p>
+        <button><a href="{{ url_for('upload', id=i['_id']) }}">Edit</a></button>
+        <button><a href="{{ url_for('home', id=i['_id']) }}">Delete</a></button>
+        <br/><br/>
+    {% endfor %}
+{% endif %}
+</div>
+</div>
+
+</body>

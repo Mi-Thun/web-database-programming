@@ -1,0 +1,22 @@
+<body style="background-color: lightgray">
+<div style="background-color: white; padding: 10px ; margin-left: 30%; margin-right: 30%" >
+
+<form align="center" action='/upload/' method="POST">
+    <input type="hidden" name="id" value="{{ pre_id }}" ><br/><br/>
+    Blog Tittle:<br>
+    <input type="text" name="tittle" value="{{ pre_tittle }}" required><br/><br/>
+    Content:<br>
+    <textarea type="text" name="content" rows="4" cols="30" required>{{ pre_content }}</textarea><br/><br/>
+    <button type="submit">Upload</button>
+    <button><a style="text-decoration: none" href="/home/">See All Blog</a></button>
+</form>
+
+
+<div align="center">
+{% if isPost == True %}
+    <p>Message: <span style="color: red">{{ result }}</span></p>
+{% endif %}
+</div>
+
+</div>
+</body>
