@@ -1,0 +1,10 @@
+<form action='/registration/' method="POST">
+  username: <input type="text" name="username1"><br/><br/>
+  password: <input type="password" name="password1"><br/><br/>
+  confirm password: <input type="password" name="password2"><br/><br/>
+  <button type="submit">Registration</button>
+</form>
+
+{% if isPost == True %}
+  {{result}}
+{% endif %}
